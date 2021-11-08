@@ -24,6 +24,7 @@ class UsersRepository implements IUsersRepository {
       name,
       email,
       created_at: new Date(),
+      updated_at: new Date(),
     });
 
     this.users.push(user);
@@ -44,7 +45,15 @@ class UsersRepository implements IUsersRepository {
   }
 
   turnAdmin(receivedUser: User): User {
-    // Complete aqui
+    const { admin, updated_at, ...rest } = receivedUser;
+
+    Object.assign(receivedUser, {
+      admin: true,
+      updated_at: new Date(),
+      ...rest,
+    });
+
+    return receivedUser;
   }
 
   list(): User[] {
