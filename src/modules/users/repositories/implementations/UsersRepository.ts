@@ -45,6 +45,7 @@ class UsersRepository implements IUsersRepository {
   }
 
   turnAdmin(receivedUser: User): User {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { admin, updated_at, ...rest } = receivedUser;
 
     Object.assign(receivedUser, {
